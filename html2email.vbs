@@ -42,9 +42,9 @@ Set fso = Nothing
 Set OutApp = CreateObject("Outlook.Application")
 Set OutMail = OutApp.CreateItem(0)
 	With OutMail
-		.To = "test@somecompany.com"
+		.To = "pat@cuizina.com"
 		.CC = ""
-		.BCC = ""
+		.BCC = "jonathan@cuizina.com"
 		.Subject = strSubject
 		.HTMLBody = HTMLtoString
 		'.Send   'or use .Display

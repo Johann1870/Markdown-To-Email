@@ -23,9 +23,10 @@
 ::  and the html file will be in the Published folder
 ::
 @ECHO OFF
-
+ECHO (C) J. Ditzel & ECHO.May 2015
 SETLOCAL
 	SET Path=%PATH%;%USERPROFILE%\AppData\Local\Pandoc
+	SET Path=%PATH%;J:\sc
 	SET CURD=%CD%
 	SET arg1=%1
 	SET arg2=%arg1%.md
@@ -34,11 +35,11 @@ SETLOCAL
 	
 	PUSHD J:\
 	CD %PATH1%\Stage	
-		COPY %arg2% %PATH1%\Commit\%arg2%
+		MOVE %arg2% %PATH1%\Commit\%arg2%
 ::------------------------------------------------	
 	CD %PATH1%\Commit
 		PANDOC %arg2% -f markdown -t html --ascii -s -o %PATH1%\Published\%arg1%.html
-		html2email.vbs %PATH1%\Published\%arg1%.html %arg1%
+		html2email %PATH1%\Published\%arg1%.html %arg1%
 	POPD
 	CD %CURD%
 ENDLOCAL
