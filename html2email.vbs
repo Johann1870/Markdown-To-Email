@@ -30,7 +30,7 @@ Dim fso, ts, OutApp, OutMail
 
 Set objArgs = Wscript.Arguments
 htmlfile = objArgs(0)
-strSubject = "Recipe Suggestion " & objArgs(1)
+strSubject = "Subject Text " & objArgs(1)
 Set fso = CreateObject("Scripting.FileSystemObject")
 Set ts = fso.GetFile(htmlfile).OpenAsTextStream(1, -2)
 	HTMLtoString = ts.readall
@@ -42,9 +42,9 @@ Set fso = Nothing
 Set OutApp = CreateObject("Outlook.Application")
 Set OutMail = OutApp.CreateItem(0)
 	With OutMail
-		.To = "pat@cuizina.com"
-		.CC = ""
-		.BCC = "jonathan@cuizina.com"
+	.To = "person1@somecompany.com"
+		.CC = "person2@somecompany.com"
+		.BCC = "person3@somecompany.com"
 		.Subject = strSubject
 		.HTMLBody = HTMLtoString
 		'.Send   'or use .Display
